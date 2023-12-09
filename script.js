@@ -1,14 +1,24 @@
+//pageload
 var loader=document.getElementById('preloader');
 
 window.addEventListener("load",function(){
     setTimeout(function(){loader.style.display="none";}, 500)
 })
 
-
+//number in services
 var valeurElement = document.getElementById('valeur');
-var valeurCible = 500;
-var delai = 10;
+var Element1 = document.getElementById('valeur1');
+var Element2 = document.getElementById('valeur2');
+var Element3 = document.getElementById('valeur3');
+var Element4 = document.getElementById('valeur4');
+var valeurCible = 350;
+var vc1 = 300;
+var vc2 = 250;
+var vc3 = 200;
+var vc5 = 700;
+var delai = 7;
 var intervalID;
+var interval
 function incrementer() {
   if (parseInt(valeurElement.innerHTML) < valeurCible) {
     valeurElement.innerHTML = parseInt(valeurElement.innerHTML) + 1;
@@ -19,9 +29,47 @@ function incrementer() {
 intervalID = setInterval(incrementer, delai);
 
 
+function inc() {
+    if (parseInt(Element1.innerHTML) < vc1) {
+      Element1.innerHTML = parseInt(Element1.innerHTML) + 1;
+    } else {
+      clearInterval(intervalID);
+    }
+  }
+  intervalID = setInterval(inc, delai);
 
 
+  function incre() {
+    if (parseInt(Element2.innerHTML) < vc2) {
+      Element2.innerHTML = parseInt(Element2.innerHTML) + 1;
+    } else {
+      clearInterval(intervalID);
+    }
+  }
+  intervalID = setInterval(incre, delai);
 
+
+  function increment() {
+    if (parseInt(Element3.innerHTML) < vc3) {
+      Element3.innerHTML = parseInt(Element3.innerHTML) + 1;
+    } else {
+      clearInterval(intervalID);
+    }
+  }
+  intervalID = setInterval(increment, delai);
+
+
+  function incrementerr() {
+    if (parseInt(Element4.innerHTML) < vc5) {
+      Element4.innerHTML = parseInt(Element4.innerHTML) + 1;
+    } else {
+      clearInterval(intervalID);
+    }
+  }
+  interval = setInterval(incrementerr, delai);
+
+
+//validation formulaire
 var nameError=document.getElementById('name-error');
 var phoneError=document.getElementById('phone-error');
 var emailError=document.getElementById('email-error');
@@ -108,6 +156,7 @@ function validateEmail() {
         if(!validateName() || !validatePhone() || !validateEmail() || !validateMessage() ||!validateSubject()){
             submitError.style.display='block'
             submitError.innerHTML='please fix error'
+            
             setTimeout(function(){submitError.style.display='none';}, 3000)
             return false;
         } 
